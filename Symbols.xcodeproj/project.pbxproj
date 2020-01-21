@@ -13,6 +13,8 @@
 		39252D3523D61473005C48CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39252D3423D61473005C48CF /* Assets.xcassets */; };
 		39252D3823D61473005C48CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39252D3723D61473005C48CF /* Preview Assets.xcassets */; };
 		39252D3B23D61473005C48CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39252D3923D61473005C48CF /* LaunchScreen.storyboard */; };
+		39252D4523D619C9005C48CF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39252D4423D619C9005C48CF /* Data.swift */; };
+		39252D4723D61B5A005C48CF /* symbols.json in Resources */ = {isa = PBXBuildFile; fileRef = 39252D4623D61B5A005C48CF /* symbols.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		39252D3723D61473005C48CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		39252D3A23D61473005C48CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39252D3C23D61473005C48CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39252D4423D619C9005C48CF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		39252D4623D61B5A005C48CF /* symbols.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = symbols.json; path = Resources/symbols.json; sourceTree = "<group>"; tabWidth = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				39252D2E23D61472005C48CF /* AppDelegate.swift */,
 				39252D3023D61472005C48CF /* SceneDelegate.swift */,
 				39252D3223D61472005C48CF /* ContentView.swift */,
+				39252D4423D619C9005C48CF /* Data.swift */,
+				39252D4623D61B5A005C48CF /* symbols.json */,
 				39252D3423D61473005C48CF /* Assets.xcassets */,
 				39252D3923D61473005C48CF /* LaunchScreen.storyboard */,
 				39252D3C23D61473005C48CF /* Info.plist */,
@@ -135,6 +141,7 @@
 			files = (
 				39252D3B23D61473005C48CF /* LaunchScreen.storyboard in Resources */,
 				39252D3823D61473005C48CF /* Preview Assets.xcassets in Resources */,
+				39252D4723D61B5A005C48CF /* symbols.json in Resources */,
 				39252D3523D61473005C48CF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +156,7 @@
 				39252D2F23D61472005C48CF /* AppDelegate.swift in Sources */,
 				39252D3123D61472005C48CF /* SceneDelegate.swift in Sources */,
 				39252D3323D61472005C48CF /* ContentView.swift in Sources */,
+				39252D4523D619C9005C48CF /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +301,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.lachlanjc.Symbols;
+				PRODUCT_BUNDLE_IDENTIFIER = me.lachlanjc.symbols;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -313,7 +321,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.lachlanjc.Symbols;
+				PRODUCT_BUNDLE_IDENTIFIER = me.lachlanjc.symbols;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
