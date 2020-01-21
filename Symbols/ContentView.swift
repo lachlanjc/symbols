@@ -60,6 +60,10 @@ struct ContentView: View {
                 SearchBar(text: $searchText)
                 List(symbols, id: \.self) { name in
                     SymbolRow(name: name)
+                        .onTapGesture {
+                            let pasteboard = UIPasteboard.general
+                            pasteboard.string = name
+                        }
                 }
             }
             .navigationBarTitle(Text("Symbols"))
