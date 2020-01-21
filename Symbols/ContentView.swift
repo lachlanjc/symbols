@@ -18,17 +18,49 @@ struct SymbolRow: View {
     }
 }
 
-struct Symbol: Identifiable {
-    var id = UUID()
-    var name: String
+struct SearchBar: UIViewRepresentable {
+    @Binding var text: String
+
+    class Coordinator: NSObject, UISearchBarDelegate {
+        @Binding var text: String
+
+        init(text: Binding<String>) {
+            _text = text
+        }
+
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            text = searchText
+        }
+    }
+
+    func makeCoordinator() -> SearchBar.Coordinator {
+        return Coordinator(text: $text)
+    }
+
+    func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
+        let searchBar = UISearchBar(frame: .zero)
+        searchBar.delegate = context.coordinator
+        searchBar.autocapitalizationType = .none
+        return searchBar
+    }
+
+    func updateUIView(_ uiView: UISearchBar, context: UIViewRepresentableContext<SearchBar>) {
+        uiView.text = text
+    }
 }
 
 struct ContentView: View {
+    @State var searchText = ""
     var body: some View {
-        let symbols = symbolData.map { Symbol(name: $0) }
+        let symbols = searchText.count > 0 ?
+            symbolData.filter { $0.contains(searchText) }
+            : symbolData
         return NavigationView {
-            List(symbols) { symbol in
-                SymbolRow(name: symbol.name)
+            VStack {
+                SearchBar(text: $searchText)
+                List(symbols, id: \.self) { name in
+                    SymbolRow(name: name)
+                }
             }
             .navigationBarTitle(Text("Symbols"))
         }
