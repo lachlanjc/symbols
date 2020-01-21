@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SymbolRow: View {
     var name: String
@@ -51,14 +52,14 @@ struct SearchBar: UIViewRepresentable {
 
 struct ContentView: View {
     @State var searchText = ""
+    
+    @ObservedObject var searchManager = SearchManager()
+    
     var body: some View {
-        let symbols = searchText.count > 0 ?
-            symbolData.filter { $0.contains(searchText) }
-            : symbolData
         return NavigationView {
             VStack {
-                SearchBar(text: $searchText)
-                List(symbols, id: \.self) { name in
+                SearchBar(text: $searchManager.searchQuery)
+                List(searchManager.data, id: \.self) { name in
                     SymbolRow(name: name)
                         .onTapGesture {
                             let pasteboard = UIPasteboard.general
@@ -68,11 +69,28 @@ struct ContentView: View {
             }
             .navigationBarTitle(Text("Symbols"))
         }
+            .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+class SearchManager: ObservableObject {
+    var searchQuery : String = "" {
+        didSet {
+            data = searchQuery.count > 0 ?
+                symbolData.filter { $0.contains(searchQuery) }
+                : symbolData
+        }
+    }
+    
+    @Published var data = symbolData
+    
+    init() {
+        
     }
 }
