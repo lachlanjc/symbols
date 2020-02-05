@@ -54,6 +54,8 @@ struct SearchBar: UIViewRepresentable {
         let searchBar = UISearchBar(frame: .zero)
         searchBar.delegate = context.coordinator
         searchBar.autocapitalizationType = .none
+        searchBar.searchBarStyle = .minimal
+        searchBar.placeholder = "Search symbols"
         return searchBar
     }
 
