@@ -13,8 +13,9 @@ struct SymbolRow: View {
     var name: String
     var body: some View {
         HStack {
-            Image(systemName: name).font(.system(size: 32)).padding()
             Text(name)
+            Spacer()
+            Image(systemName: name).font(.system(size: 32)).padding()
         }
     }
 }
