@@ -74,7 +74,7 @@ struct ContentView: View {
                             let pasteboard = UIPasteboard.general
                             pasteboard.string = name
                         }
-                }
+                }.id(UUID())
             }
             .navigationBarTitle(Text("Symbols"))
         }
