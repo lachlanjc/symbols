@@ -95,7 +95,7 @@ class SearchManager: ObservableObject {
     var searchQuery : String = "" {
         didSet {
             data = searchQuery.count > 0 ?
-                symbolData.filter { $0.contains(searchQuery) }
+                symbolData.filter { $0.lowercased().contains(searchQuery.lowercased()) }
                 : symbolData
         }
     }
