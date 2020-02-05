@@ -31,10 +31,13 @@ struct SearchBar: UIViewRepresentable {
 
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             text = searchText
-            // Subpar hack for detecting the clear button
-            if text.count == 0 {
-                searchBar.endEditing(true)
-            }
+            searchBar.showsCancelButton = true
+        }
+        
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.resignFirstResponder()
+            searchBar.endEditing(true)
+            searchBar.showsCancelButton = false
         }
         
         func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
