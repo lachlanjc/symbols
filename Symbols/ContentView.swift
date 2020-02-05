@@ -57,7 +57,7 @@ struct ContentView: View {
     
     var body: some View {
         return NavigationView {
-            VStack {
+            VStack(spacing: 0) {
                 SearchBar(text: $searchManager.searchQuery)
                 List(searchManager.data, id: \.self) { name in
                     SymbolRow(name: name)
